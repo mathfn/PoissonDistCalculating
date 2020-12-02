@@ -1,0 +1,25 @@
+#Para o cálculo desta distribuição hipergeométrica, definiremos os seguintes inputs
+print("Cálculo da Distribuição de Poisson.")
+
+lambd = float(input("λ:"))
+i = int(input("x:"))
+e = 2.71828
+
+#Para o cálculo, definiremos a função factorial e combination
+#Definimos uma função para o cálculo do fatorial de um número
+
+def factorial(n):
+  if n == 0:
+    return 1
+  else:
+    return n * factorial(n - 1)
+
+#Vamos calcular a distribuição de Poisson 
+
+def p(x,y):
+  f1 = e**(-1*y)
+  f2 = y**(x)
+  f3 = factorial(x)
+  return (f1*f2)/f3
+
+print("p(x;λ) = ", p(i,lambd))

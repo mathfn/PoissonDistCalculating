@@ -1,0 +1,30 @@
+#Para o cálculo desta distribuição hipergeométrica, definiremos os seguintes inputs
+print("Cálculo da Distribuição de Poisson. Desta vez, o valor de x varia e a distribuição é o somatório da função dada essa variação.")
+
+lambd = float(input("λ:"))
+i = int(input("x:"))
+j = int(input("y:"))
+e = 2.71828
+
+#Para o cálculo, definiremos a função factorial e combination
+#Definimos uma função para o cálculo do fatorial de um número
+
+def factorial(n):
+  if n == 0:
+    return 1
+  else:
+    return n * factorial(n - 1)
+
+#Vamos calcular a distribuição de Poisson para o caso em que  valor de x sofre variação.
+#a função range(a,b) vai de a até b-1, motivo porque no laço abaixo ficou range(i,t+1)
+
+soma = 0
+for valor_x in range(i,j+1):
+  f1 = e**(-1*lambd)
+  f2 = lambd**(valor_x)
+  f3 = factorial(valor_x)
+  result = (f1*f2)/f3
+  soma = soma + result
+
+print("p(x;λ) = ", soma)
+
